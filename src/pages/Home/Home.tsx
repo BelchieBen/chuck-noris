@@ -67,7 +67,7 @@ export default function Home(){
                 <Divider orientation="horizontal" sx={{margin:2}}/>
                 <Stack spacing={2}>
                     <Button variant="contained" onClick={handleRandomClicked}>Random Joke</Button>
-                    <Button variant="contained" onClick={handlePickCategoryClicked}>PickRandomPick from a category</Button>
+                    <Button variant="contained" onClick={handlePickCategoryClicked}>Pick from a category</Button>
                     {jokeCategories.length !== 0 ? <JokeCategoriesList setRandomJoke={setRandomJoke} categories={jokeCategories} />: <></>}
                     <Button variant="contained" onClick={handleFreeSearchClicked}>Free Search</Button>
                     {freeSearch ? 
