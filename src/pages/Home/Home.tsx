@@ -6,7 +6,8 @@ import {
     Stack,
     Paper,
     Divider,
-    TextField
+    TextField,
+    Tooltip
 } from '@mui/material';
 import axios from 'axios';
 import {random, listCategories, freeSearchJoke} from '../../utils/endpoints.ts';
@@ -63,7 +64,7 @@ export default function Home(){
             }}>
             <Paper elevation={2} sx={{padding:4, textAlign:"center"}}>
                 <Typography variant="h3">Random Chuck Norris Joke Generator</Typography>
-                <Typography variant="h5">What would you like today?</Typography>
+                <Typography variant="h5">What would you like to do today?</Typography>
                 <Divider orientation="horizontal" sx={{margin:2}}/>
                 <Stack spacing={2}>
                     <Button variant="contained" onClick={handleRandomClicked}>Random Joke</Button>
@@ -71,15 +72,19 @@ export default function Home(){
                     {jokeCategories.length !== 0 ? <JokeCategoriesList setRandomJoke={setRandomJoke} categories={jokeCategories} />: <></>}
                     <Button variant="contained" onClick={handleFreeSearchClicked}>Free Search</Button>
                     {freeSearch ? 
-                        <Stack spacing={1} direction="row" sx={{width:"100%"}}>
-                            <TextField 
-                                color="secondary" 
-                                label="Free Search" 
-                                variant="outlined"
-                                sx={{width:"100%"}}
-                                onChange={(e) => {setFreeSearchValue(e.target.value)}} /> 
-                            <Button variant="contained" color="secondary" onClick={handleSearchClicked}>Search</Button>
-                        </Stack>
+                        <Box sx={{paddingBottom:2}}>
+                            <Tooltip title="Enter keywords to find new jokes" arrow>
+                                <Stack spacing={1} direction="row" sx={{width:"100%"}}>
+                                    <TextField 
+                                        color="secondary" 
+                                        label="Find Jokes" 
+                                        variant="outlined"
+                                        sx={{width:"100%"}}
+                                        onChange={(e) => {setFreeSearchValue(e.target.value)}} />
+                                    <Button variant="contained" color="secondary" onClick={handleSearchClicked}>Search</Button>
+                                </Stack>
+                            </Tooltip> 
+                        </Box>
                     : 
                         <></>
                     }
