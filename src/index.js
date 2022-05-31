@@ -3,11 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter} from 'react-router-dom';
+import {ThemeProvider, createTheme} from '@mui/material';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: ['"Share Tech Mono"', 'monospace'].join(',')
+   },
+   palette:{
+     primary: {
+      main: '#fff'
+    },
+    secondary: {
+      main: '#000000'
+    }
+   }
+})
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
