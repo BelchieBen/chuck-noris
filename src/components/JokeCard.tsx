@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { Box, Typography, Paper, Divider } from '@mui/material';
+import React from 'react';
+import {Typography, Paper, Divider } from '@mui/material';
 
 export default function JokeCard(props){
     return(

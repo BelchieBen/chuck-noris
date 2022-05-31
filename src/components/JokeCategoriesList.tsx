@@ -3,7 +3,7 @@ import {List, ListItemButton, ListItemText} from '@mui/material';
 import axios from 'axios';
 import {jokeFromCategory} from '../utils/endpoints.ts';
 
-export default function(props){
+export default function JokeCategoriesList(props){
     const [selectedIndex, setSelectedIndex] = useState(1);
 
     const handleListItemClick = (
